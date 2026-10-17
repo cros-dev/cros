@@ -1,50 +1,41 @@
 import { Link } from "react-router";
+import { Container } from "~/components/layout/container";
+import { ThemeToggle } from "~/components/ui/theme-toggle";
 
-interface SiteHeaderProps {
-  fullName: string;
-}
+const NAV_LINK_CLASSES =
+  "text-caption sm:text-sm text-muted-foreground transition-colors hover:text-primary";
 
-/** Cabeçalho global com identificação e links de navegação do portfólio. */
-export function SiteHeader({ fullName }: SiteHeaderProps) {
+/** Cabeçalho global fixo no topo com navegação principal e alternância de tema. */
+export function SiteHeader() {
   return (
-    <header className="border-b-[0.5px] border-border bg-background print:hidden print:bg-transparent">
-      <div className="mx-auto flex max-w-3xl flex-col gap-3 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
-        <Link
-          to="/"
-          className="text-sm font-semibold tracking-tight text-foreground hover:text-primary focus-visible:text-primary"
-        >
-          {fullName}
-        </Link>
-        <nav
-          aria-label="Navegação principal"
-          className="flex flex-wrap items-center gap-4 text-sm text-muted-foreground print:hidden"
-        >
-          <a
-            href="/#sobre"
-            className="hover:text-primary focus-visible:text-primary"
-          >
-            Sobre
-          </a>
-          <a
-            href="/#experiencia"
-            className="hover:text-primary focus-visible:text-primary"
-          >
-            Experiência
-          </a>
-          <a
-            href="/#projetos"
-            className="hover:text-primary focus-visible:text-primary"
-          >
-            Projetos
-          </a>
+    <header className="sticky top-0 z-20 border-b border-border/80 bg-background/82 backdrop-blur-md print:hidden">
+      <Container>
+        <div className="flex h-[var(--site-header-height)] items-center justify-between gap-4 sm:gap-8">
           <Link
-            to="/curriculo"
-            className="font-medium text-primary hover:underline focus-visible:underline"
+            to="/"
+            className="text-ui-sm font-medium tracking-[-0.01em] text-foreground transition-colors hover:text-primary"
           >
-            Currículo
+            cros.dev.br
           </Link>
-        </nav>
-      </div>
+          <div className="flex items-center gap-4 sm:gap-7">
+            <nav
+              aria-label="Principal"
+              className="flex items-center gap-4 sm:gap-7"
+            >
+              <a href="/#projetos" className={NAV_LINK_CLASSES}>
+                Projetos
+              </a>
+              <a href="/#experiencia" className={NAV_LINK_CLASSES}>
+                Experiência
+              </a>
+              <Link to="/curriculo" className={NAV_LINK_CLASSES}>
+                Currículo
+              </Link>
+            </nav>
+            <ThemeToggle />
+          </div>
+        </div>
+      </Container>
     </header>
   );
 }

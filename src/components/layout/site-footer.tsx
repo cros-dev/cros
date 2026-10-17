@@ -1,37 +1,56 @@
-interface SiteFooterProps {
+import { Container } from "~/components/layout/container";
+
+export interface SiteFooterProps {
+  ownerName: string;
+  year: number;
   email: string;
   linkedinUrl: string;
   githubUrl: string;
 }
 
-/** Rodapé global com links de contato direto e perfis profissionais. */
-export function SiteFooter({ email, linkedinUrl, githubUrl }: SiteFooterProps) {
+const FOOTER_LINK_CLASSES = "transition-colors hover:text-primary";
+
+/** Rodapé global com identificação de autoria e links de contato e perfis profissionais. */
+export function SiteFooter({
+  ownerName,
+  year,
+  email,
+  linkedinUrl,
+  githubUrl,
+}: SiteFooterProps) {
   return (
-    <footer className="border-t-[0.5px] border-border bg-background print:bg-transparent">
-      <div className="mx-auto flex max-w-3xl flex-wrap items-center gap-x-6 gap-y-2 px-4 py-6 text-sm text-muted-foreground">
-        <a
-          href={`mailto:${email}`}
-          className="text-primary hover:underline focus-visible:underline"
-        >
-          {email}
-        </a>
-        <a
-          href={linkedinUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="text-primary hover:underline focus-visible:underline"
-        >
-          LinkedIn
-        </a>
-        <a
-          href={githubUrl}
-          target="_blank"
-          rel="noreferrer"
-          className="text-primary hover:underline focus-visible:underline"
-        >
-          GitHub
-        </a>
-      </div>
+    <footer
+      id="contato"
+      className="scroll-mt-[var(--site-section-scroll-margin)]"
+    >
+      <Container>
+        <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border py-8 pb-14 text-caption text-muted-foreground">
+          <p>
+            © {year} {ownerName}
+          </p>
+          <div className="flex flex-wrap items-center gap-5">
+            <a href={`mailto:${email}`} className={FOOTER_LINK_CLASSES}>
+              {email}
+            </a>
+            <a
+              href={linkedinUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={FOOTER_LINK_CLASSES}
+            >
+              LinkedIn
+            </a>
+            <a
+              href={githubUrl}
+              target="_blank"
+              rel="noreferrer"
+              className={FOOTER_LINK_CLASSES}
+            >
+              GitHub
+            </a>
+          </div>
+        </div>
+      </Container>
     </footer>
   );
 }

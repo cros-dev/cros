@@ -6,6 +6,7 @@ export const profile = parseContent(
   profileSchema,
   {
     fullName: "Caio Riquelmy Oliveira da Silva",
+    shortName: "Caio Riquelmy",
     headline: "Software Engineer",
     summary:
       "Desenvolvo sistemas corporativos, integrações entre plataformas e infraestrutura de deploy — do modelo de dados ao pipeline em produção.",

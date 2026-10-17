@@ -7,18 +7,21 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { Container } from "~/components/layout/container";
 import { SiteFooter } from "~/components/layout/site-footer";
 import { SiteHeader } from "~/components/layout/site-header";
 import { profile } from "~/features/profile/content/profile";
+import { THEME_INIT_SCRIPT } from "~/lib/theme";
 import type { Route } from "./+types/root";
 import "./index.css";
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="pt-BR">
+    <html lang="pt-BR" suppressHydrationWarning>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <script dangerouslySetInnerHTML={{ __html: THEME_INIT_SCRIPT }} />
         <Meta />
         <Links />
       </head>
@@ -33,12 +36,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
 
 export default function App() {
   return (
-    <div className="flex min-h-screen flex-col bg-background text-foreground print:bg-transparent">
-      <SiteHeader fullName={profile.fullName} />
-      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
-        <Outlet />
+    <div className="flex min-h-svh flex-col">
+      <SiteHeader />
+      <main className="flex-1">
+        <Container className="py-10">
+          <Outlet />
+        </Container>
       </main>
       <SiteFooter
+        ownerName={profile.shortName}
+        year={2026}
         email={profile.email}
         linkedinUrl={profile.linkedinUrl}
         githubUrl={profile.githubUrl}
