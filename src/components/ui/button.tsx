@@ -10,7 +10,7 @@ export interface ButtonVariantsOptions {
 }
 
 const BUTTON_BASE_CLASSES =
-  "inline-flex items-center justify-center gap-2 font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50";
+  "inline-flex cursor-pointer items-center justify-center gap-2 font-medium whitespace-nowrap transition-colors outline-none focus-visible:ring-3 focus-visible:ring-ring/50 disabled:pointer-events-none disabled:opacity-50";
 
 const BUTTON_VARIANT_CLASSES: Record<ButtonVariant, string> = {
   default:
