@@ -1,19 +1,25 @@
 import { describe, expect, it } from "vitest";
-import { formatMonth, formatPeriod } from "./date";
+import {
+  formatShortPeriod,
+  formatTimelineMonth,
+  formatTimelinePeriod,
+} from "./date";
 
 describe("date helpers", () => {
-  it("formats a YYYY-MM string to pt-BR short month and year", () => {
-    expect(formatMonth("2026-01")).toBe("jan. de 2026");
-    expect(formatMonth("2025-11")).toBe("nov. de 2025");
+  it("formats a closed and open short period", () => {
+    expect(formatShortPeriod("2026-01", "2029-12")).toBe("Jan/2026 — Dez/2029");
+    expect(formatShortPeriod("2026-01", null)).toBe("Jan/2026 — atual");
   });
 
-  it("formats a closed period with start and end months", () => {
-    expect(formatPeriod("2025-04", "2025-10")).toBe(
-      "abr. de 2025 – out. de 2025",
+  it("formats a timeline period with capitalized Atual when open", () => {
+    expect(formatTimelinePeriod("2025-04", "2025-10")).toBe(
+      "Abr/2025 — Out/2025",
     );
+    expect(formatTimelinePeriod("2026-01", null)).toBe("Jan/2026 — Atual");
   });
 
-  it("formats an open period with null end date as atual", () => {
-    expect(formatPeriod("2026-01", null)).toBe("jan. de 2026 – atual");
+  it("formats a timeline month in full pt-BR or Sem data when null", () => {
+    expect(formatTimelineMonth("2025-08")).toBe("Agosto, 2025");
+    expect(formatTimelineMonth(null)).toBe("Sem data");
   });
 });

@@ -14,6 +14,7 @@ export const projectSchema = z
     slug: z.string().min(1),
     title: z.string().min(1),
     context: z.enum(["personal", "corporate"]),
+    featured: z.boolean(),
     summary: z.string().min(1),
     highlights: z.array(z.string().min(1)).min(1).max(3),
     technologies: z.array(z.string().min(1)).min(1),

@@ -1,10 +1,13 @@
-import { ExperienceSection } from "~/features/experience/components/experience-section";
+import { Link } from "react-router";
+import { ExperienceTimelineSection } from "~/features/experience/components/experience-timeline";
 import { experiences } from "~/features/experience/content/experiences";
-import { AboutSection } from "~/features/profile/components/about-section";
+import { HeroSection } from "~/features/profile/components/hero-section";
 import { profile } from "~/features/profile/content/profile";
-import { ProjectsSection } from "~/features/projects/components/projects-section";
+import { ProjectTimelineSection } from "~/features/projects/components/project-timeline";
 import { projects } from "~/features/projects/content/projects";
 import type { Route } from "./+types/home";
+
+const featuredProjects = projects.filter((project) => project.featured);
 
 /** Metadados da página inicial do portfólio. */
 export function meta(_args: Route.MetaArgs) {
@@ -14,13 +17,26 @@ export function meta(_args: Route.MetaArgs) {
   ];
 }
 
-/** Página inicial do portfólio com resumo das seções Sobre, Experiência e Projetos. */
+/** Página inicial do portfólio com abertura principal e linhas do tempo de projetos e experiências. */
 export default function Home() {
   return (
-    <div className="space-y-12">
-      <AboutSection profile={profile} />
-      <ExperienceSection experiences={experiences} highlightLimit={3} />
-      <ProjectsSection projects={projects} />
-    </div>
+    <>
+      <HeroSection profile={profile} />
+      <ProjectTimelineSection
+        projects={featuredProjects}
+        variant="summary"
+        title="Projetos em destaque"
+        heading="h2"
+        action={
+          <Link
+            to="/projetos"
+            className="text-ui-sm text-primary transition-colors hover:text-primary/80"
+          >
+            Ver todos os projetos
+          </Link>
+        }
+      />
+      <ExperienceTimelineSection experiences={experiences} />
+    </>
   );
 }

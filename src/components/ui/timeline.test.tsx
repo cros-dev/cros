@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom/vitest";
 import { render, screen } from "@testing-library/react";
 import { describe, expect, it } from "vitest";
-import { TimelineContent, TimelineDate } from "./timeline";
+import { TimelineContent, TimelineDate, TimelineMarker } from "./timeline";
 
 describe("Timeline", () => {
   it("applies data-active=\"true\" and bg-foreground when TimelineDate is active", () => {
@@ -12,8 +12,8 @@ describe("Timeline", () => {
     expect(pill).toHaveClass("bg-foreground");
   });
 
-  it("renders the date label and children inside TimelineContent", () => {
-    render(
+  it("renders the date label and children inside TimelineContent without marker anchors", () => {
+    const { container } = render(
       <TimelineContent dateLabel="2024 – 2025" align="left">
         <p>Detalhes da experiência</p>
       </TimelineContent>,
@@ -23,5 +23,15 @@ describe("Timeline", () => {
     expect(
       screen.getAllByText("Detalhes da experiência").length,
     ).toBeGreaterThan(0);
+    const anchorAttr = ["data", "timeline", "marker", "anchor"].join("-");
+    expect(container.querySelector(`[${anchorAttr}]`)).toBeNull();
+  });
+
+  it("renders data-timeline-marker on TimelineMarker", () => {
+    const { container } = render(<TimelineMarker />);
+
+    expect(
+      container.querySelector("[data-timeline-marker]"),
+    ).not.toBeNull();
   });
 });

@@ -39,7 +39,7 @@ export default function App() {
     <div className="flex min-h-svh flex-col">
       <SiteHeader />
       <main className="flex-1">
-        <Container className="py-10">
+        <Container>
           <Outlet />
         </Container>
       </main>

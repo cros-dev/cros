@@ -21,7 +21,7 @@ export function SiteFooter({
   return (
     <footer
       id="contato"
-      className="scroll-mt-[var(--site-section-scroll-margin)]"
+      className="scroll-mt-[var(--site-section-scroll-margin)] print:hidden"
     >
       <Container>
         <div className="flex flex-wrap items-center justify-between gap-3 border-t border-border py-8 pb-14 text-caption text-muted-foreground">

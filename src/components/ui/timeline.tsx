@@ -70,7 +70,7 @@ export function TimelineLine({
 
   return (
     <div aria-hidden="true" className={classes} {...props}>
-      <div className="absolute inset-0 w-px bg-timeline-track" />
+      <div className="absolute inset-0 w-px bg-line group-data-[timeline-scroll=active]/timeline:bg-timeline-track group-data-[timeline-scroll=idle]/timeline:bg-timeline-track" />
       <div className="absolute top-0 z-[1] h-[var(--timeline-progress,0px)] w-px origin-top bg-foreground" />
     </div>
   );
@@ -152,7 +152,7 @@ export function TimelineMarker({
     .join(" ");
 
   return (
-    <div aria-hidden="true" className={classes}>
+    <div aria-hidden="true" data-timeline-marker="" className={classes}>
       <span
         className={`absolute inset-0 rounded-full ${
           isActive ? "bg-foreground/12" : "bg-timeline-track"
@@ -174,7 +174,7 @@ export interface TimelineContentProps {
   children: ReactNode;
 }
 
-/** Layout responsivo de item da linha do tempo com âncora, marcador, data e conteúdo. */
+/** Layout responsivo de item da linha do tempo com marcador, data e conteúdo. */
 export function TimelineContent({
   align = "left",
   dateLabel,
@@ -183,11 +183,6 @@ export function TimelineContent({
 }: TimelineContentProps) {
   return (
     <>
-      <span
-        aria-hidden="true"
-        data-timeline-marker-anchor=""
-        className="pointer-events-none absolute top-[0.625rem] left-[1.125rem] size-0 -translate-x-1/2 md:top-[2.125rem] md:left-1/2"
-      />
       <div className="md:hidden">
         <div className="flex items-center">
           <div className="flex w-[2.25rem] shrink-0 justify-center">

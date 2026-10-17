@@ -5,6 +5,7 @@ const baseProject = {
   slug: "projeto-exemplo",
   title: "Projeto Exemplo",
   context: "personal" as const,
+  featured: true,
   summary: "Resumo objetivo do projeto.",
   highlights: ["Destaque 1", "Destaque 2"],
   technologies: ["TypeScript", "React"],
@@ -14,6 +15,13 @@ const baseProject = {
 };
 
 describe("projectSchema", () => {
+  it("rejects project without featured", () => {
+    const { featured: _featured, ...withoutFeatured } = baseProject;
+    const result = projectSchema.safeParse(withoutFeatured);
+
+    expect(result.success).toBe(false);
+  });
+
   it("rejects unknown context", () => {
     const result = projectSchema.safeParse({
       ...baseProject,

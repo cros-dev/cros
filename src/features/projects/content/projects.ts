@@ -9,6 +9,7 @@ export const projects = parseContent(
       slug: "zona-azul",
       title: "Zona Azul",
       context: "personal",
+      featured: true,
       summary:
         "Sistema para supervisão de setores de estacionamento rotativo, substituindo o controle manual por planilhas e mensagens.",
       highlights: [
@@ -34,6 +35,7 @@ export const projects = parseContent(
       slug: "inventario-de-infraestrutura",
       title: "Inventário de infraestrutura",
       context: "corporate",
+      featured: true,
       summary:
         "Plataforma interna que consolida servidores legados, hosts Docker e clusters Kubernetes em um inventário único.",
       highlights: [
@@ -59,6 +61,7 @@ export const projects = parseContent(
       slug: "plataforma-de-entrega-gitops",
       title: "Plataforma de entrega GitOps",
       context: "corporate",
+      featured: true,
       summary:
         "Padronização da entrega de aplicações internas, do template inicial do projeto ao deploy em Kubernetes.",
       highlights: [
@@ -82,6 +85,7 @@ export const projects = parseContent(
       slug: "faturamento-e-emissao-fiscal",
       title: "Faturamento e emissão fiscal",
       context: "corporate",
+      featured: false,
       summary:
         "Sistema de faturamento recorrente com emissão de notas fiscais de comunicação (NFCom) e integração com ERP, em manutenção evolutiva.",
       highlights: [

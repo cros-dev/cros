@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes } from "react";
 
 export type ButtonVariant = "default" | "cta" | "outline" | "ghost";
-export type ButtonSize = "default" | "sm" | "icon";
+export type ButtonSize = "default" | "sm" | "icon" | "icon-sm";
 
 export interface ButtonVariantsOptions {
   variant?: ButtonVariant;
@@ -22,9 +22,10 @@ const BUTTON_VARIANT_CLASSES: Record<ButtonVariant, string> = {
 };
 
 const BUTTON_SIZE_CLASSES: Record<ButtonSize, string> = {
-  default: "rounded-lg px-[1.625rem] py-[0.875rem] text-ui-sm",
+  default: "h-9 rounded-lg px-[1.625rem] text-ui-sm",
   sm: "rounded-md px-2.5 py-1.5 text-caption",
   icon: "size-9 rounded-full",
+  "icon-sm": "size-8 rounded-full",
 };
 
 /** Retorna as classes utilitárias de estilo para botões e links com aparência de botão. */

@@ -4,14 +4,19 @@ import { describe, expect, it } from "vitest";
 import { Button, buttonVariants } from "./button";
 
 describe("Button", () => {
-  it("buttonVariants includes classes for cta and outline variants", () => {
+  it("buttonVariants includes classes for cta and outline variants and sizes", () => {
+    const defaultClasses = buttonVariants();
     const ctaClasses = buttonVariants({ variant: "cta" });
     const outlineClasses = buttonVariants({ variant: "outline" });
+    const iconSmClasses = buttonVariants({ size: "icon-sm" });
 
+    expect(defaultClasses).toContain("h-9");
+    expect(defaultClasses).not.toContain("py-[0.875rem]");
     expect(ctaClasses).toContain("bg-cta");
     expect(ctaClasses).toContain("text-cta-foreground");
     expect(outlineClasses).toContain("border-primary/40");
     expect(outlineClasses).toContain("text-primary");
+    expect(iconSmClasses).toContain("size-8");
   });
 
   it("renders type=\"button\" by default", () => {
