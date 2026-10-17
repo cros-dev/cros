@@ -6,7 +6,7 @@ import { projects } from "~/features/projects/content/projects";
 import Curriculo from "./curriculo";
 
 describe("Curriculo route", () => {
-  it("renders document sections, 32 highlights, 2 educations, 3 languages, 6 skill groups, print action, and no project cards", () => {
+  it("renders document sections, 6 summary paragraphs, 27 highlights, 2 educations, 3 languages, 6 skill groups, print action, and no project cards", () => {
     const printSpy = vi
       .spyOn(window, "print")
       .mockImplementation(() => undefined);
@@ -39,13 +39,20 @@ describe("Curriculo route", () => {
       screen.getByRole("heading", { level: 2, name: "Competências técnicas" }),
     ).toBeInTheDocument();
 
+    const summarySection = screen
+      .getByRole("heading", { level: 2, name: "Resumo profissional" })
+      .closest("section");
+    expect((summarySection as HTMLElement).querySelectorAll("p")).toHaveLength(
+      6,
+    );
+
     const experienciaSection = container.querySelector("#experiencia");
     expect(experienciaSection).toBeInTheDocument();
 
     const allHighlights = within(
       experienciaSection as HTMLElement,
     ).getAllByRole("listitem");
-    expect(allHighlights).toHaveLength(32);
+    expect(allHighlights).toHaveLength(27);
 
     const educationSection = screen
       .getByRole("heading", { level: 2, name: "Formação acadêmica" })

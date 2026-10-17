@@ -7,7 +7,7 @@ export const profile = parseContent(
   {
     fullName: "Caio Riquelmy Oliveira da Silva",
     shortName: "Caio Riquelmy",
-    headline: "Software Engineer",
+    headline: "Desenvolvedor de Software",
     summary:
       "Desenvolvo sistemas corporativos, integrações entre plataformas e infraestrutura de deploy — do modelo de dados ao pipeline em produção.",
     email: "crosnegocios@hotmail.com",
