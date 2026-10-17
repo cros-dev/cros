@@ -7,6 +7,9 @@ import {
   ScrollRestoration,
 } from "react-router";
 
+import { SiteFooter } from "~/components/layout/site-footer";
+import { SiteHeader } from "~/components/layout/site-header";
+import { profile } from "~/features/profile/content/profile";
 import type { Route } from "./+types/root";
 import "./index.css";
 
@@ -29,7 +32,19 @@ export function Layout({ children }: { children: React.ReactNode }) {
 }
 
 export default function App() {
-  return <Outlet />;
+  return (
+    <div className="flex min-h-screen flex-col bg-background text-foreground print:bg-transparent">
+      <SiteHeader fullName={profile.fullName} />
+      <main className="mx-auto w-full max-w-3xl flex-1 px-4 py-10">
+        <Outlet />
+      </main>
+      <SiteFooter
+        email={profile.email}
+        linkedinUrl={profile.linkedinUrl}
+        githubUrl={profile.githubUrl}
+      />
+    </div>
+  );
 }
 
 export function ErrorBoundary({ error }: Route.ErrorBoundaryProps) {
