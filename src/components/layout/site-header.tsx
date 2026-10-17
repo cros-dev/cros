@@ -13,19 +13,25 @@ export function SiteHeader() {
         <div className="flex h-[var(--site-header-height)] items-center justify-between gap-4 sm:gap-8">
           <Link
             to="/"
-            className="text-ui-sm font-medium tracking-[-0.01em] text-foreground transition-colors hover:text-primary"
+            className="shrink-0 text-ui-sm font-medium tracking-[-0.01em] text-foreground transition-colors hover:text-primary"
           >
             cros.dev.br
           </Link>
-          <div className="flex items-center gap-4 sm:gap-7">
+          <div className="flex shrink-0 items-center gap-3 sm:gap-7">
             <nav
               aria-label="Principal"
-              className="flex items-center gap-4 sm:gap-7"
+              className="flex items-center gap-3 sm:gap-7"
             >
-              <a href="/#projetos" className={NAV_LINK_CLASSES}>
+              <a
+                href="/#projetos"
+                className={`hidden sm:inline ${NAV_LINK_CLASSES}`}
+              >
                 Projetos
               </a>
-              <a href="/#experiencia" className={NAV_LINK_CLASSES}>
+              <a
+                href="/#experiencia"
+                className={`hidden sm:inline ${NAV_LINK_CLASSES}`}
+              >
                 Experiência
               </a>
               <Link to="/curriculo" className={NAV_LINK_CLASSES}>

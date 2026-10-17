@@ -15,15 +15,16 @@ describe("SiteHeader", () => {
 
     render(<Stub initialEntries={["/"]} />);
 
-    expect(
-      screen.getByRole("link", { name: "Projetos" }),
-    ).toHaveAttribute("href", "/#projetos");
-    expect(
-      screen.getByRole("link", { name: "Experiência" }),
-    ).toHaveAttribute("href", "/#experiencia");
-    expect(
-      screen.getByRole("link", { name: "Currículo" }),
-    ).toHaveAttribute("href", "/curriculo");
+    const projectsLink = screen.getByRole("link", { name: "Projetos" });
+    const experienceLink = screen.getByRole("link", { name: "Experiência" });
+    const resumeLink = screen.getByRole("link", { name: "Currículo" });
+
+    expect(projectsLink).toHaveAttribute("href", "/#projetos");
+    expect(projectsLink).toHaveClass("hidden", "sm:inline");
+    expect(experienceLink).toHaveAttribute("href", "/#experiencia");
+    expect(experienceLink).toHaveClass("hidden", "sm:inline");
+    expect(resumeLink).toHaveAttribute("href", "/curriculo");
+    expect(resumeLink).not.toHaveClass("hidden");
     expect(
       screen.getByRole("button", { name: "Alternar tema" }),
     ).toBeInTheDocument();
