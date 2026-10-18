@@ -5,7 +5,7 @@ import { projects } from "~/features/projects/content/projects";
 import { ProjectTimelineSection } from "./project-timeline";
 
 describe("ProjectTimelineSection", () => {
-  it("renders 4 project articles, context and status badges, and Sem data in 2 timeline pills", () => {
+  it("renders 5 project articles, context and status badges, and Sem data in 2 timeline pills", () => {
     const { container } = render(
       <ProjectTimelineSection
         projects={projects}
@@ -18,10 +18,10 @@ describe("ProjectTimelineSection", () => {
     const desktopSlots = Array.from(
       container.querySelectorAll<HTMLElement>(".hidden.md\\:grid"),
     );
-    expect(desktopSlots).toHaveLength(4);
+    expect(desktopSlots).toHaveLength(5);
 
     const articles = desktopSlots.map((slot) => within(slot).getByRole("article"));
-    expect(articles).toHaveLength(4);
+    expect(articles).toHaveLength(5);
 
     const personalBadges = desktopSlots.flatMap((slot) =>
       within(slot).queryAllByText("Projeto pessoal"),
@@ -36,7 +36,7 @@ describe("ProjectTimelineSection", () => {
       within(slot).queryAllByText("Sem data"),
     );
 
-    expect(personalBadges).toHaveLength(1);
+    expect(personalBadges).toHaveLength(2);
     expect(corporateBadges).toHaveLength(3);
     expect(maintenanceBadges).toHaveLength(1);
     expect(undatedPills).toHaveLength(2);

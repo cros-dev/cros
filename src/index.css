@@ -144,9 +144,30 @@
   }
 }
 
+@keyframes project-gallery-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+.project-gallery-track {
+  animation: project-gallery-scroll 20s linear infinite;
+}
+
+.project-gallery-track:hover,
+.project-gallery-track[data-paused="true"] {
+  animation-play-state: paused;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
+  }
+  .project-gallery-track {
+    animation: none;
   }
 }
 

@@ -6,7 +6,7 @@ import { projects } from "~/features/projects/content/projects";
 import Projetos from "./projetos";
 
 describe("Projetos route", () => {
-  it("renders h1 Projetos, 4 project cards, maintenance badge, project highlights, and link back to home", () => {
+  it("renders h1 Projetos, 5 project cards, maintenance badge, project highlights, and link back to home", () => {
     const Stub = createRoutesStub([
       {
         path: "/projetos",
@@ -26,7 +26,7 @@ describe("Projetos route", () => {
     const projectItems = (projetosSection as HTMLElement).querySelectorAll(
       "[data-timeline-item]",
     );
-    expect(projectItems).toHaveLength(4);
+    expect(projectItems).toHaveLength(5);
 
     expect(screen.getAllByText("Em manutenção").length).toBeGreaterThan(0);
 

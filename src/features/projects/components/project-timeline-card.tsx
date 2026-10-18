@@ -1,6 +1,7 @@
 import { useId } from "react";
 import { Badge } from "~/components/ui/badge";
 import { TechnologyPillList } from "~/components/ui/technology-pill";
+import { ProjectGallery } from "~/features/projects/components/project-gallery";
 import {
   PROJECT_CONTEXT_LABELS,
   PROJECT_STATUS_LABELS,
@@ -52,6 +53,12 @@ export function ProjectTimelineCard({
             </li>
           ))}
         </ul>
+      )}
+      {isDetail && project.gallery && (
+        <ProjectGallery
+          projectTitle={project.title}
+          images={project.gallery}
+        />
       )}
       {project.technologies.length > 0 && (
         <div className="mt-5">

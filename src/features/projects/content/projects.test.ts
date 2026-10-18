@@ -12,6 +12,7 @@ const collectProjectTexts = () =>
     project.summary,
     ...project.highlights,
     ...project.technologies,
+    ...(project.gallery?.map((image) => image.alt) ?? []),
   ]);
 
 describe("projects content compliance", () => {
@@ -30,6 +31,31 @@ describe("projects content compliance", () => {
   it("contains no URLs outside the links field", () => {
     for (const text of collectProjectTexts()) {
       expect(text).not.toMatch(URL_REGEX);
+    }
+  });
+
+  it("defines gallery only for zona-azul and cros-dev-br and never for corporate projects", () => {
+    const slugsWithGallery = projects
+      .filter((project) => project.gallery !== undefined)
+      .map((project) => project.slug);
+
+    expect(slugsWithGallery).toEqual(["zona-azul", "cros-dev-br"]);
+
+    for (const project of projects) {
+      if (project.context === "corporate") {
+        expect(project.gallery).toBeUndefined();
+      }
+    }
+  });
+
+  it("contains no Manaus or AGEMAM references in gallery alt texts", () => {
+    const altTexts = projects.flatMap(
+      (project) => project.gallery?.map((image) => image.alt) ?? [],
+    );
+
+    expect(altTexts.length).toBeGreaterThan(0);
+    for (const alt of altTexts) {
+      expect(alt).not.toMatch(/manaus|agemam/i);
     }
   });
 });

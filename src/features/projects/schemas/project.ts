@@ -8,6 +8,13 @@ const projectLinksSchema = z.object({
   demoUrl: z.url().optional(),
 });
 
+const projectGalleryImageSchema = z.object({
+  src: z.string().min(1),
+  alt: z.string().min(1),
+  width: z.number().int().positive(),
+  height: z.number().int().positive(),
+});
+
 /** Schema de validação de um projeto do portfólio. */
 export const projectSchema = z
   .object({
@@ -22,6 +29,7 @@ export const projectSchema = z
     startDate: yearMonthSchema.nullable(),
     endDate: yearMonthSchema.nullable(),
     links: projectLinksSchema.optional(),
+    gallery: z.array(projectGalleryImageSchema).min(3).optional(),
   })
   .superRefine((project, ctx) => {
     if (project.context === "corporate" && project.links !== undefined) {
@@ -31,9 +39,17 @@ export const projectSchema = z
         message: "Projetos corporativos não podem definir links externos.",
       });
     }
+    if (project.context === "corporate" && project.gallery !== undefined) {
+      ctx.addIssue({
+        code: "custom",
+        path: ["gallery"],
+        message: "Projetos corporativos não podem definir galeria de imagens.",
+      });
+    }
   });
 
 /** Schema de validação da lista de projetos do portfólio. */
 export const projectsSchema = z.array(projectSchema);
 
+export type ProjectGalleryImage = z.infer<typeof projectGalleryImageSchema>;
 export type Project = z.infer<typeof projectSchema>;

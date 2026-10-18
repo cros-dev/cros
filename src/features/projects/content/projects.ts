@@ -1,3 +1,14 @@
+import crosInicioClaro from "~/assets/projects/cros-dev-br/01-inicio-claro.webp";
+import crosInicioEscuro from "~/assets/projects/cros-dev-br/02-inicio-escuro.webp";
+import crosProjetos from "~/assets/projects/cros-dev-br/03-projetos.webp";
+import crosCurriculo from "~/assets/projects/cros-dev-br/04-curriculo.webp";
+import crosInicioCelular from "~/assets/projects/cros-dev-br/05-inicio-celular.webp";
+import zonaAzulPainel from "~/assets/projects/zona-azul/01-painel.webp";
+import zonaAzulGraficos from "~/assets/projects/zona-azul/02-graficos.webp";
+import zonaAzulDetalheOcorrencia from "~/assets/projects/zona-azul/03-detalhe-ocorrencia.webp";
+import zonaAzulNovaOcorrencia from "~/assets/projects/zona-azul/04-nova-ocorrencia.webp";
+import zonaAzulSetores from "~/assets/projects/zona-azul/05-setores.webp";
+import zonaAzulEscalas from "~/assets/projects/zona-azul/06-escalas.webp";
 import { parseContent } from "~/lib/content";
 import { projectsSchema } from "~/features/projects/schemas/project";
 
@@ -30,6 +41,102 @@ export const projects = parseContent(
       status: "in_progress",
       startDate: "2026-07",
       endDate: null,
+      gallery: [
+        {
+          src: zonaAzulPainel,
+          alt: "Painel com receita perdida, ocorrências e vagas afetadas no período e gráfico de receita perdida por dia",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: zonaAzulGraficos,
+          alt: "Gráficos de receita perdida por setor, motivo, área e subárea, com o detalhe de uma barra em cada gráfico",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: zonaAzulDetalheOcorrencia,
+          alt: "Detalhe de uma ocorrência com dados, cálculo da receita perdida, fotos de campo e linha do tempo da validação",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: zonaAzulNovaOcorrencia,
+          alt: "Formulário de nova ocorrência com cálculo do total estimado em tempo real",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: zonaAzulSetores,
+          alt: "Lista de setores com área, subárea, líder titular, backup, vagas e pendências",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: zonaAzulEscalas,
+          alt: "Escala semanal de líderes titulares por setor",
+          width: 1600,
+          height: 1000,
+        },
+      ],
+    },
+    {
+      slug: "cros-dev-br",
+      title: "cros.dev.br",
+      context: "personal",
+      featured: false,
+      summary:
+        "Portfólio e currículo estáticos, com uma página HTML gerada no build para cada rota.",
+      highlights: [
+        "Pré-renderização de todas as rotas, sem servidor em produção.",
+        "Conteúdo em arquivos tipados validados no build; conteúdo inválido interrompe a publicação.",
+        "Design system próprio com tema claro e escuro e currículo imprimível em A4.",
+      ],
+      technologies: [
+        "React Router",
+        "React",
+        "TypeScript",
+        "Tailwind CSS",
+        "Zod",
+        "Vite",
+        "Vitest",
+      ],
+      status: "in_progress",
+      startDate: "2026-10",
+      endDate: null,
+      links: { repositoryUrl: "https://github.com/cros-dev/cros" },
+      gallery: [
+        {
+          src: crosInicioClaro,
+          alt: "Página inicial no tema claro com nome, título profissional e atalhos para projetos e contato",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: crosInicioEscuro,
+          alt: "Página inicial no tema escuro",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: crosProjetos,
+          alt: "Linha do tempo dos projetos em destaque na página inicial",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: crosCurriculo,
+          alt: "Currículo em formato de documento, pronto para impressão",
+          width: 1600,
+          height: 1000,
+        },
+        {
+          src: crosInicioCelular,
+          alt: "Página inicial no celular, no tema escuro",
+          width: 720,
+          height: 1558,
+        },
+      ],
     },
     {
       slug: "inventario-de-infraestrutura",
