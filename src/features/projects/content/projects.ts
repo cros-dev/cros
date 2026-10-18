@@ -133,8 +133,8 @@ export const projects = parseContent(
         {
           src: crosInicioCelular,
           alt: "Página inicial no celular, no tema escuro",
-          width: 720,
-          height: 1558,
+          width: 800,
+          height: 1512,
         },
       ],
     },
