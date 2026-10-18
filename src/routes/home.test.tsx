@@ -51,6 +51,12 @@ describe("Home route", () => {
       ).toBeGreaterThan(0);
     }
 
+    expect(
+      within(projectItems[0] as HTMLElement).getAllByRole("button", {
+        name: "Ampliar imagem 1 de 6",
+      }).length,
+    ).toBeGreaterThan(0);
+
     for (const project of projects) {
       for (const highlight of project.highlights) {
         expect(

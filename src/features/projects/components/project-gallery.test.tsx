@@ -49,7 +49,7 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
     cleanup();
   });
 
-  it("renders gallery buttons 1 to 6 in detail variant and hides gallery in summary variant", () => {
+  it("renders gallery buttons 1 to 6 in both detail and summary variants", () => {
     if (!projectWithGallery) {
       throw new Error("Expected at least one project");
     }
@@ -70,9 +70,11 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
       <ProjectTimelineCard project={projectWithGallery} variant="summary" />,
     );
 
-    expect(
-      screen.queryByRole("button", { name: /Ampliar imagem/i }),
-    ).not.toBeInTheDocument();
+    for (let index = 1; index <= 6; index += 1) {
+      expect(
+        screen.getByRole("button", { name: `Ampliar imagem ${index} de 6` }),
+      ).toBeInTheDocument();
+    }
   });
 
   it("opens dialog on clicked image with title and 3 / 6 counter, navigates, and closes on Fechar", () => {

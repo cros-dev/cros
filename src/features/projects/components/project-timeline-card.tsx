@@ -54,7 +54,7 @@ export function ProjectTimelineCard({
           ))}
         </ul>
       )}
-      {isDetail && project.gallery && (
+      {project.gallery && (
         <ProjectGallery
           projectTitle={project.title}
           images={project.gallery}

@@ -62,7 +62,7 @@ export const projects = parseContent(
         },
         {
           src: zonaAzulNovaOcorrencia,
-          alt: "Formulário de nova ocorrência com cálculo do total estimado em tempo real",
+          alt: "Formulário de nova ocorrência preenchido, com vagas selecionadas, fotos e total estimado em tempo real",
           width: 1600,
           height: 1000,
         },
