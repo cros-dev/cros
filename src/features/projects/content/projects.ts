@@ -7,8 +7,15 @@ import zonaAzulPainel from "~/assets/projects/zona-azul/01-painel.webp";
 import zonaAzulGraficos from "~/assets/projects/zona-azul/02-graficos.webp";
 import zonaAzulDetalheOcorrencia from "~/assets/projects/zona-azul/03-detalhe-ocorrencia.webp";
 import zonaAzulNovaOcorrencia from "~/assets/projects/zona-azul/04-nova-ocorrencia.webp";
-import zonaAzulSetores from "~/assets/projects/zona-azul/05-setores.webp";
+import zonaAzulHomologacao from "~/assets/projects/zona-azul/05-homologacao.webp";
 import zonaAzulEscalas from "~/assets/projects/zona-azul/06-escalas.webp";
+import zonaAzulAppSetores from "~/assets/projects/zona-azul/07-app-setores.webp";
+import zonaAzulAppOcorrencias from "~/assets/projects/zona-azul/08-app-ocorrencias.webp";
+import zonaAzulAppDetalhe from "~/assets/projects/zona-azul/09-app-detalhe.webp";
+import zonaAzulAppMotivo from "~/assets/projects/zona-azul/10-app-motivo.webp";
+import zonaAzulAppCategoriasSinalizacao from "~/assets/projects/zona-azul/11-app-categorias-sinalizacao.webp";
+import zonaAzulAppItensSinalizacao from "~/assets/projects/zona-azul/12-app-itens-sinalizacao.webp";
+import zonaAzulAppVandalismo from "~/assets/projects/zona-azul/13-app-vandalismo.webp";
 import { parseContent } from "~/lib/content";
 import { projectsSchema } from "~/features/projects/schemas/project";
 
@@ -46,37 +53,79 @@ export const projects = parseContent(
           src: zonaAzulPainel,
           alt: "Painel com receita perdida, ocorrências e vagas afetadas no período e gráfico de receita perdida por dia",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: zonaAzulGraficos,
           alt: "Gráficos de receita perdida por setor, motivo, área e subárea, com o detalhe de uma barra em cada gráfico",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: zonaAzulDetalheOcorrencia,
           alt: "Detalhe de uma ocorrência com dados, cálculo da receita perdida, fotos de campo e linha do tempo da validação",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: zonaAzulNovaOcorrencia,
           alt: "Formulário de nova ocorrência preenchido, com vagas selecionadas, fotos e total estimado em tempo real",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
-          src: zonaAzulSetores,
-          alt: "Lista de setores com área, subárea, líder titular, backup, vagas e pendências",
+          src: zonaAzulHomologacao,
+          alt: "Ocorrência validada aguardando a homologação da supervisão, com a linha do tempo da esteira",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: zonaAzulEscalas,
           alt: "Escala semanal de líderes titulares por setor",
           width: 1600,
-          height: 1000,
+          height: 1075,
+        },
+        {
+          src: zonaAzulAppSetores,
+          alt: "App do líder: setores titulares e de cobertura como backup",
+          width: 800,
+          height: 1512,
+        },
+        {
+          src: zonaAzulAppOcorrencias,
+          alt: "App do líder: lista de ocorrências com busca e filtro por status",
+          width: 800,
+          height: 1512,
+        },
+        {
+          src: zonaAzulAppDetalhe,
+          alt: "App do líder: detalhe da ocorrência com fotos comprobatórias",
+          width: 800,
+          height: 1512,
+        },
+        {
+          src: zonaAzulAppMotivo,
+          alt: "App do líder: escolha do motivo ao registrar uma ocorrência",
+          width: 800,
+          height: 1512,
+        },
+        {
+          src: zonaAzulAppCategoriasSinalizacao,
+          alt: "App do líder: categorias do catálogo de itens de sinalização",
+          width: 800,
+          height: 1512,
+        },
+        {
+          src: zonaAzulAppItensSinalizacao,
+          alt: "App do líder: seleção de placas danificadas com quantidade",
+          width: 800,
+          height: 1512,
+        },
+        {
+          src: zonaAzulAppVandalismo,
+          alt: "App do líder: ocorrência de vandalismo de sinalização com itens e período preenchidos",
+          width: 800,
+          height: 1512,
         },
       ],
     },
@@ -110,25 +159,25 @@ export const projects = parseContent(
           src: crosInicioClaro,
           alt: "Página inicial no tema claro com nome, título profissional e atalhos para projetos e contato",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: crosInicioEscuro,
           alt: "Página inicial no tema escuro",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: crosProjetos,
           alt: "Linha do tempo dos projetos em destaque na página inicial",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: crosCurriculo,
           alt: "Currículo em formato de documento, pronto para impressão",
           width: 1600,
-          height: 1000,
+          height: 1075,
         },
         {
           src: crosInicioCelular,

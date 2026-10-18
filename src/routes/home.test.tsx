@@ -53,7 +53,7 @@ describe("Home route", () => {
 
     expect(
       within(projectItems[0] as HTMLElement).getAllByRole("button", {
-        name: "Ampliar imagem 1 de 6",
+        name: "Ampliar imagem 1 de 13",
       }).length,
     ).toBeGreaterThan(0);
 

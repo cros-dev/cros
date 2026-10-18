@@ -49,7 +49,7 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
     cleanup();
   });
 
-  it("renders gallery buttons 1 to 6 in both detail and summary variants", () => {
+  it("renders gallery buttons 1 to 13 in both detail and summary variants", () => {
     if (!projectWithGallery) {
       throw new Error("Expected at least one project");
     }
@@ -58,9 +58,9 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
       <ProjectTimelineCard project={projectWithGallery} variant="detail" />,
     );
 
-    for (let index = 1; index <= 6; index += 1) {
+    for (let index = 1; index <= 13; index += 1) {
       expect(
-        screen.getByRole("button", { name: `Ampliar imagem ${index} de 6` }),
+        screen.getByRole("button", { name: `Ampliar imagem ${index} de 13` }),
       ).toBeInTheDocument();
     }
 
@@ -70,14 +70,14 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
       <ProjectTimelineCard project={projectWithGallery} variant="summary" />,
     );
 
-    for (let index = 1; index <= 6; index += 1) {
+    for (let index = 1; index <= 13; index += 1) {
       expect(
-        screen.getByRole("button", { name: `Ampliar imagem ${index} de 6` }),
+        screen.getByRole("button", { name: `Ampliar imagem ${index} de 13` }),
       ).toBeInTheDocument();
     }
   });
 
-  it("opens dialog on clicked image with title and 3 / 6 counter, navigates, and closes on Fechar", () => {
+  it("opens dialog on clicked image with title and 3 / 13 counter, navigates, and closes on Fechar", () => {
     if (!projectWithGallery?.gallery) {
       throw new Error("Expected project with gallery");
     }
@@ -90,7 +90,7 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
     );
 
     fireEvent.click(
-      screen.getByRole("button", { name: "Ampliar imagem 3 de 6" }),
+      screen.getByRole("button", { name: "Ampliar imagem 3 de 13" }),
     );
 
     expect(
@@ -98,15 +98,15 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
         name: `Imagens — ${projectWithGallery.title}`,
       }),
     ).toBeInTheDocument();
-    expect(screen.getByText("3 / 6")).toBeInTheDocument();
+    expect(screen.getByText("3 / 13")).toBeInTheDocument();
 
     fireEvent.click(
       screen.getAllByRole("button", { name: "Próxima imagem" })[0],
     );
-    expect(screen.getByText("4 / 6")).toBeInTheDocument();
+    expect(screen.getByText("4 / 13")).toBeInTheDocument();
 
     fireEvent.keyDown(window, { key: "ArrowLeft" });
-    expect(screen.getByText("3 / 6")).toBeInTheDocument();
+    expect(screen.getByText("3 / 13")).toBeInTheDocument();
 
     fireEvent.click(screen.getByRole("button", { name: "Fechar" }));
     expect(
@@ -129,17 +129,17 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
     );
 
     fireEvent.click(
-      screen.getByRole("button", { name: "Ampliar imagem 1 de 6" }),
+      screen.getByRole("button", { name: "Ampliar imagem 1 de 13" }),
     );
 
     const nextButtons = screen.getAllByRole("button", {
       name: "Próxima imagem",
     });
     expect(nextButtons.length).toBeGreaterThanOrEqual(2);
-    expect(screen.getByText("1 / 6")).toBeInTheDocument();
+    expect(screen.getByText("1 / 13")).toBeInTheDocument();
 
     fireEvent.click(nextButtons[0]);
-    expect(screen.getByText("2 / 6")).toBeInTheDocument();
+    expect(screen.getByText("2 / 13")).toBeInTheDocument();
   });
 
   it("omits duplicate thumbnails and animation when prefers-reduced-motion is enabled", () => {
@@ -157,7 +157,7 @@ describe("ProjectGallery and ProjectTimelineCard gallery integration", () => {
     );
 
     const allButtons = container.querySelectorAll("button");
-    expect(allButtons).toHaveLength(6);
+    expect(allButtons).toHaveLength(13);
     expect(
       container.querySelector(".project-gallery-track"),
     ).not.toBeInTheDocument();
