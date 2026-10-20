@@ -40,13 +40,22 @@ describe("projectSchema", () => {
     expect(result.success).toBe(false);
   });
 
-  it("rejects more than 3 highlights", () => {
+  it("rejects more than 5 highlights", () => {
     const result = projectSchema.safeParse({
       ...baseProject,
-      highlights: ["Item 1", "Item 2", "Item 3", "Item 4"],
+      highlights: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5", "Item 6"],
     });
 
     expect(result.success).toBe(false);
+  });
+
+  it("accepts 5 highlights", () => {
+    const result = projectSchema.safeParse({
+      ...baseProject,
+      highlights: ["Item 1", "Item 2", "Item 3", "Item 4", "Item 5"],
+    });
+
+    expect(result.success).toBe(true);
   });
 
   it("rejects corporate project with links", () => {

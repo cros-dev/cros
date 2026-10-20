@@ -29,11 +29,13 @@ export const projects = parseContent(
       context: "personal",
       featured: true,
       summary:
-        "Sistema para supervisão de setores de estacionamento rotativo, substituindo o controle manual por planilhas e mensagens.",
+        "Sistema para operadoras de estacionamento rotativo em vias públicas: líderes de campo registram pelo celular as vagas que ficaram indisponíveis em cada rua, e a supervisão valida, homologa e acompanha a receita perdida, no lugar de planilhas e mensagens.",
       highlights: [
-        "Registro de ocorrências em campo com fotos enviadas direto ao armazenamento por URLs pré-assinadas compatíveis com S3.",
-        "Esteira de validação com permissões por perfil e histórico de cada ocorrência.",
-        "Painel com série diária e indicadores por setor e por motivo.",
+        "App do líder para registrar ocorrências em campo, com fotos enviadas direto ao armazenamento por URLs pré-assinadas compatíveis com S3 e fila para uso sem conexão.",
+        "Validação em etapas (líder, assistente e supervisão), com permissões por perfil e histórico de cada ocorrência.",
+        "Receita perdida calculada por vaga, hora e tarifa, e prejuízo de vandalismo por item de sinalização danificado, com valores congelados no registro.",
+        "Painel com indicadores por rua, área e motivo, cards configuráveis e exportação em Excel no formato exigido pelo órgão gestor.",
+        "Escalas semanais da liderança por rua, com titulares e cobertura.",
       ],
       technologies: [
         "Django REST Framework",
@@ -135,11 +137,12 @@ export const projects = parseContent(
       context: "personal",
       featured: false,
       summary:
-        "Portfólio e currículo estáticos, com uma página HTML gerada no build para cada rota.",
+        "Portfólio e currículo com conteúdo tipado e validado, design system próprio e todas as páginas pré-renderizadas, publicadas sem servidor de aplicação.",
       highlights: [
-        "Pré-renderização de todas as rotas, sem servidor em produção.",
-        "Conteúdo em arquivos tipados validados no build; conteúdo inválido interrompe a publicação.",
+        "Conteúdo em arquivos tipados e validados no build; conteúdo inválido interrompe a publicação.",
         "Design system próprio com tema claro e escuro e currículo imprimível em A4.",
+        "Galeria com capturas reproduzíveis por ferramenta própria: moldura, assinatura e autoria embutida na imagem.",
+        "Cada entrega passa por lint, tipos, testes e build antes de entrar no ar.",
       ],
       technologies: [
         "React Router",

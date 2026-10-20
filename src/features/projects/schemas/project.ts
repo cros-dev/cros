@@ -23,7 +23,7 @@ export const projectSchema = z
     context: z.enum(["personal", "corporate"]),
     featured: z.boolean(),
     summary: z.string().min(1),
-    highlights: z.array(z.string().min(1)).min(1).max(3),
+    highlights: z.array(z.string().min(1)).min(1).max(5),
     technologies: z.array(z.string().min(1)).min(1),
     status: z.enum(["in_progress", "completed", "maintenance"]),
     startDate: yearMonthSchema.nullable(),

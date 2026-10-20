@@ -10,4 +10,11 @@ describe("Badge", () => {
     const badge = screen.getByText("Atenção");
     expect(badge).toHaveClass("bg-warn-bg");
   });
+
+  it("applies border-line when tone is muted", () => {
+    render(<Badge label="Projeto pessoal" tone="muted" />);
+
+    const badge = screen.getByText("Projeto pessoal");
+    expect(badge).toHaveClass("border-line");
+  });
 });

@@ -18,7 +18,7 @@ const BADGE_BASE_CLASSES = "inline-flex items-center rounded-full px-2 py-0.5";
 const BADGE_TONE_CLASSES: Record<BadgeTone, string> = {
   primary: "bg-primary/10 text-primary",
   secondary: "bg-secondary font-medium text-secondary-foreground",
-  muted: "bg-muted font-normal text-muted-foreground",
+  muted: "border-[0.5px] border-line bg-muted font-normal text-muted-foreground",
   warn: "border-[0.5px] border-warn-line bg-warn-bg text-warn-fg",
   destructive: "bg-destructive/10 text-destructive",
 };
