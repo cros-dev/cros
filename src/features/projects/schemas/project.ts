@@ -25,7 +25,7 @@ export const projectSchema = z
     summary: z.string().min(1),
     highlights: z.array(z.string().min(1)).min(1).max(5),
     technologies: z.array(z.string().min(1)).min(1),
-    status: z.enum(["in_progress", "completed", "maintenance"]),
+    status: z.enum(["in_progress", "completed", "maintenance", "prototype"]),
     startDate: yearMonthSchema.nullable(),
     endDate: yearMonthSchema.nullable(),
     links: projectLinksSchema.optional(),

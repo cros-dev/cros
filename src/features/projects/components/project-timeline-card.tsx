@@ -1,5 +1,5 @@
 import { useId } from "react";
-import { Badge } from "~/components/ui/badge";
+import { Badge, type BadgeTone } from "~/components/ui/badge";
 import { TechnologyPillList } from "~/components/ui/technology-pill";
 import { ProjectGallery } from "~/features/projects/components/project-gallery";
 import {
@@ -14,6 +14,13 @@ export interface ProjectTimelineCardProps {
   project: Project;
   variant: ProjectTimelineCardVariant;
 }
+
+const PROJECT_STATUS_TONES: Record<Project["status"], BadgeTone> = {
+  in_progress: "primary",
+  completed: "primary",
+  maintenance: "secondary",
+  prototype: "muted",
+};
 
 /** Cartão de projeto da linha do tempo em versão resumida ou detalhada. */
 export function ProjectTimelineCard({
@@ -33,7 +40,7 @@ export function ProjectTimelineCard({
         {isDetail && (
           <Badge
             label={PROJECT_STATUS_LABELS[project.status]}
-            tone={project.status === "maintenance" ? "secondary" : "primary"}
+            tone={PROJECT_STATUS_TONES[project.status]}
           />
         )}
       </div>

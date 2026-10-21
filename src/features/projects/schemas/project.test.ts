@@ -40,6 +40,15 @@ describe("projectSchema", () => {
     expect(result.success).toBe(false);
   });
 
+  it("accepts prototype status", () => {
+    const result = projectSchema.safeParse({
+      ...baseProject,
+      status: "prototype",
+    });
+
+    expect(result.success).toBe(true);
+  });
+
   it("rejects more than 5 highlights", () => {
     const result = projectSchema.safeParse({
       ...baseProject,

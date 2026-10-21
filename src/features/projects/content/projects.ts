@@ -47,7 +47,7 @@ export const projects = parseContent(
         "React Native",
         "MinIO",
       ],
-      status: "in_progress",
+      status: "prototype",
       startDate: "2026-07",
       endDate: null,
       gallery: [
@@ -189,6 +189,34 @@ export const projects = parseContent(
           height: 1512,
         },
       ],
+    },
+    {
+      slug: "metascan",
+      title: "MetaScan",
+      context: "personal",
+      featured: false,
+      summary:
+        "Sistema para conferência de estoque em cavaletes: a equipe de inventário registra produtos e quantidades por posição e valida cada item contra o ERP, apoiando a auditoria e o controle do estoque.",
+      highlights: [
+        "Cavaletes e posições com responsáveis e fluxo de conferência (disponível, em conferência, concluído), com histórico de cada ação.",
+        "Busca do produto pelo código, digitado ou lido por leitor de código de barras, com consulta de produto e estoque no ERP Sankhya pela API.",
+        "Divergência entre a quantidade contada e o estoque do ERP sinalizada na conferência e registrada no histórico.",
+        "Interface responsiva para conferência pelo celular.",
+      ],
+      technologies: [
+        "Django REST Framework",
+        "PostgreSQL",
+        "Redis",
+        "React",
+        "TypeScript",
+        "Chakra UI",
+        "TanStack Query",
+        "Zod",
+        "Sankhya",
+      ],
+      status: "prototype",
+      startDate: "2026-02",
+      endDate: "2026-02",
     },
     {
       slug: "inventario-de-infraestrutura",

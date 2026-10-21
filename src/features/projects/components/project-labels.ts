@@ -11,4 +11,5 @@ export const PROJECT_STATUS_LABELS: Record<Project["status"], string> = {
   in_progress: "Em andamento",
   completed: "Concluído",
   maintenance: "Em manutenção",
+  prototype: "Protótipo",
 };
